@@ -104,21 +104,23 @@ function replaceText() {
     }
   }
 
-  function setCookieAndDecrementCount () {
-
-    if (!enabled())
-    {
-        console.log("GPT-4 message limit not found")
-        return;
+  function setCookieAndDecrementCount() {
+    if (!enabled()) {
+      console.log("GPT-4 message limit not found");
+      return;
     }
-
-    console.log("Reducing count")
-    // decrement the count and update the cookie
+  
+    console.log("Reducing count");
+  
+    // Get the current count from the cookie
+    count = parseInt(getCookie("enterCount")) || 25;
+  
+    // Decrement the count and update the cookie
     count--;
     setCookie("enterCount", count);
-
-    // if the count reaches 0, do nothing
-  }
+  
+    // If the count reaches 0, do nothing
+  }  
 
   function attachToButtons() {
     if (!enabled()) {
