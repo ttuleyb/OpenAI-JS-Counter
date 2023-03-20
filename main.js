@@ -83,7 +83,7 @@ function setCookie(name, value) {
 // function to replace any occurrence of "Regenerate response" or "Stop generating" with the new text that includes the count of Enter key presses
 function replaceText() {
     if (!enabled()){
-        console.log("GPT-4 message limit not found")
+        console.log("This isn't GPT-4")
         return;
     }
     const elements = document.querySelectorAll('.flex.w-full.items-center.justify-center.gap-2, button.btn');
@@ -109,18 +109,18 @@ function replaceText() {
       console.log("GPT-4 message limit not found");
       return;
     }
-  
+
     console.log("Reducing count");
-  
+
     // Get the current count from the cookie
     count = parseInt(getCookie("enterCount")) || 25;
-  
+
     // Decrement the count and update the cookie
     count--;
     setCookie("enterCount", count);
-  
+
     // If the count reaches 0, do nothing
-  }  
+  }
 
   function attachToButtons() {
     if (!enabled()) {
@@ -186,7 +186,7 @@ function replaceText() {
   });
 
   // replace the text every second
-  setInterval(replaceText, 100);
+  setInterval(replaceText, 1000);
   setInterval(attachToButtons, 100);
 
 
